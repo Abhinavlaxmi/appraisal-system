@@ -19,11 +19,13 @@ app.use(cors({
 // Routes
 const authRoutes = require('./routes/authRoutes');
 const questionRoutes = require('./routes/questionRoutes');
+const associationRoutes = require('./routes/associationRoutes');
 const appraisalRoutes = require('./routes/appraisalRoutes');
 const userRoutes = require('./routes/userRoutes');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/questions', questionRoutes);
+app.use('/api/formAssociation', associationRoutes);
 app.use('/api/appraisals', appraisalRoutes);
 app.use('/api/users', userRoutes);
 

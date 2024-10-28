@@ -2,13 +2,13 @@ const Question = require('../models/Question');
 
 // Create a Question
 const createQuestion = async (req, res) => {
-  const { questionText, category } = req.body;
+  const { title, questions } = req.body;
 
-  if (!questionText) {
+  if (!questions || !title) {
     return res.status(400).json({ message: 'Question text is required' });
   }
 
-  const question = await Question.create({ questionText, category });
+  const question = await Question.create({ title, questions });
 
   res.status(201).json(question);
 };

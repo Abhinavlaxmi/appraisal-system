@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import RegistrationPage from './RegistrationPage';
+import UserList from '../pages/userList';
+import AppraisalFormList from '../pages/appraisalFormList';
+import AssignedFormPage from '../pages/assignedForm';
+// import AppraisalFormList from '../pages/appraisalFormList';
 
 const AdminNavbar = () => {
   const [activeItem, setActiveItem] = useState('Users');
@@ -9,7 +13,7 @@ const AdminNavbar = () => {
     { label: 'User Registration', value: 'User Registration' },
     { label: 'Appraisal Forms', value: 'Appraisal Forms' },
     { label: 'Submitted Appraisal', value: 'Submitted Appraisal' },
-    { label: 'Team Association', value: 'Team Association' },
+    // { label: 'Team Association', value: 'Team Association' },
     { label: 'Form Association', value: 'Form Association' },
   ];
 
@@ -35,9 +39,10 @@ const AdminNavbar = () => {
 
       {/* Content area */}
       <div className="ml-64 p-6">
-        {activeItem === 'User Registration' && <RegistrationPage />}
-        <h2 className="text-3xl font-semibold">{activeItem}</h2>
-        <p className="mt-4">Content related to {activeItem} will be displayed here.</p>
+        {activeItem === 'User Registration' && <RegistrationPage setActiveItem={setActiveItem} />} 
+        {activeItem === 'Users' && <UserList />} 
+        {activeItem === 'Appraisal Forms' && <AppraisalFormList />} 
+        {activeItem === 'Form Association' && <AssignedFormPage />} 
       </div>
     </div>
   );

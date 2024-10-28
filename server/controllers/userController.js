@@ -1,6 +1,5 @@
 const User = require('../models/User');
 
-// Map Participants to managers, Peers, and Juniors
 const mapParticipants = async (req, res) => {
   const { participantId, managerId, peersIds, juniorsIds } = req.body;
 
@@ -20,10 +19,9 @@ const mapParticipants = async (req, res) => {
   res.json(participant);
 };
 
-// Get All Users (Admin)
 const getAllUsers = async (req, res) => {
   const users = await User.find().select('-password');
-  res.json(users);
+  res.status(200).json(users);
 };
 
 module.exports = { mapParticipants, getAllUsers };

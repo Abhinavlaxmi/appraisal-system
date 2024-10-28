@@ -9,8 +9,8 @@ const { permit } = require('../middlewares/roleMiddleware');
 
 const router = express.Router();
 
-router.post('/', protect, permit('self', 'manager', 'peer', 'junior'), createAppraisal);
-router.get('/', protect, permit('admin', 'manager', 'peer', 'junior'), getAppraisalsForUser);
+router.post('/', protect, permit('self', 'manager', 'peer', 'senior', 'junior'), createAppraisal);
+router.get('/', protect, permit('admin', 'manager', 'peer', 'senior', 'junior'), getAppraisalsForUser);
 
 router.get('/all', protect, permit('admin'), getAllAppraisals);
 

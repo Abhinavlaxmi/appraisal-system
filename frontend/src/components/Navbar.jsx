@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
+import AssignedFormPage from '../pages/assignedForm';
 
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState('Appraisal Forms');
 
   const navItems = [
-    { label: 'Users', value: 'Users' },
+    // { label: 'Users', value: 'Users' },
     { label: 'Appraisal Forms', value: 'Appraisal Forms' },
     { label: 'Submitted Appraisal', value: 'Submitted Appraisal' },
-    { label: 'Team Association', value: 'Team Association' },
-    { label: 'Form Association', value: 'Form Association' },
+    // { label: 'Team Association', value: 'Team Association' },
+    // { label: 'Form Association', value: 'Form Association' },
   ];
 
   return (
@@ -33,8 +34,7 @@ const Navbar = () => {
 
       {/* Content area */}
       <div className="ml-64 p-6">
-        <h2 className="text-3xl font-semibold">{activeItem}</h2>
-        <p className="mt-4">Content related to {activeItem} will be displayed here.</p>
+        {activeItem ==="Appraisal Forms" && <AssignedFormPage /> }
       </div>
     </div>
   );

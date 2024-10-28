@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from '../services/redux/store';
 
 interface ProtectedRouteProps {
   children: JSX.Element;
@@ -9,7 +8,7 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, allowedRoles }) => {
-  const auth = useSelector((state: RootState) => state.auth);
+  const auth = useSelector((state: any) => state.auth);
   
   if (!auth.user) {
     return <Navigate to="/login" replace />;

@@ -9,6 +9,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import { Provider } from 'react-redux';
 import store from './services/redux/store';
 import ThemeProvider from './contexts/ThemeContext';
+import RegistrationPage from './components/RegistrationPage';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Router>
           <Routes>
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/bypass/registration" element={<RegistrationPage bypass={true} />} />
             <Route path="/unauthorized" element={<Unauthorized />} />
             <Route
               path="/admin"
@@ -29,7 +31,7 @@ const App = () => {
             <Route
               path="/staff"
               element={
-                <ProtectedRoute allowedRoles={['supervisor', 'peer', 'junior']}>
+                <ProtectedRoute allowedRoles={['supervisor', 'peer', 'junior', 'senior']}>
                   <StaffDashboard />
                 </ProtectedRoute>
               }
@@ -37,7 +39,7 @@ const App = () => {
             <Route
               path="/dashboard"
               element={
-                <ProtectedRoute allowedRoles={['admin', 'supervisor', 'peer', 'junior']}>
+                <ProtectedRoute allowedRoles={['admin', 'supervisor', 'peer', 'senior', 'junior']}>
                   <Dashboard />
                 </ProtectedRoute>
               }
